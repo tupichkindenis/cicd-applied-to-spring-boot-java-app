@@ -19,7 +19,7 @@ before_install:
 
 script:
   - cat $HOME/.m2/settings.xml
-  - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar -Dsonar.projectKey=tupichkindenis_cicd-applied-to-spring-boot-java-app
+  - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar -Dsonar.projectKey=tupichkindenis_cicd-applied-to-spring-boot-java-app -Dsonar.organization=tupichkindenis -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=e3472f258297bfd492d841279f18cf4ca0511206
 #  - mvn deploy
 
 after_success:
