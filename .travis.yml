@@ -16,3 +16,12 @@ script:
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
+  - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar -Dsonar.projectKey=tupichkindenis_cicd-applied-to-spring-boot-java-app
+
+addons:
+  sonarcloud:
+    organization: "tupichkindenis"
+    token:
+      secure: "Ey0fxkmI4Um6M8pDIQXT5gAnkC2g4cidAqTxz6s07vd7URQWBymKSonrIopohj1/gw+RmQQ4ZxB3h+F32v6FBd7jZti7UofKEvBepG9YBWvNAsHAdvCGIWD66XebbOinr2fSdxJnClBSDqfwRTF+vzcPOzRrN6zhtswRCUjOTAi0gNbwXKNr9q6l4+/Ufj6oQ5a97y+D4jtc4SSjpzTHIc3xT0/kdDAvxNEC1LxZQnbPJxN3eciRdzp1bkN+UeXMOutbsK6WxyXA7NtfoKScP4lpELUO8rHIjl3AAfpW9F9/GTVIyE8ypfb1/Wld85d1hARtM/c1pAOdYl0nXV5fN6RIsy2ZicvuIQYI2aeH7E5UIYRTnzjZ7OwANJ2AtSoNsziicifhrZaHf0vu3yNR1WzIT3xicBDQnOEJcFSDS6xQ5cERFEEZFjV3cr7Uq8XAGaXctvxSUA4QbQPAZ7kknxK/WEBzfAbAalYoksNBwCPlFAVIAE5JBJnT2vfjPXJaGDdIM/5WiSdVubY0HkIlw4mxUYxkMt77HqsYI4EQTMZfg+YqWbXzqKukztBpu1sXOS0Cx+NlP8oc1LwtypjJIgpi8sxET0tvcK5IZNp3Mq9QQA8bNMO32bSxJ+z8Src8DicVP1/WgdWAajJRsQjwT/dRw9Gd/SfJlY1iOUvYG0o="
+
+
