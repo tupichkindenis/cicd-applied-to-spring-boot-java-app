@@ -11,7 +11,7 @@ addons:
   sonarcloud:
     organization: "tupichkindenis"
     token:
-      secure: $SONAR_TOKEN # encrypted value of your token
+      secure: "5fed1ed48bfdddc06e63f027f45d49de6ec82587"
 
 before_install:
   - echo "$DOCKER_PASSWORD" | docker login  -u "$DOCKER_USERNAME" --password-stdin
@@ -19,9 +19,8 @@ before_install:
 
 script:
   - cat $HOME/.m2/settings.xml
-  - mvn deploy
+  - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar -Dsonar.projectKey=tupichkindenis_cicd-applied-to-spring-boot-java-app
+#  - mvn deploy
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
-  # the following command line builds the project, runs the tests with coverage and then execute the SonarCloud analysis
-  - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar -Dsonar.projectKey=tupichkindenis_cicd-applied-to-spring-boot-java-app
