@@ -9,4 +9,10 @@ public class HelloController {
     public String home(){
         return "Hello world...";
     }
+
+    @GetMapping ("/good-by")
+    public String goodBy(){
+        return "Good by...";
+    }
+
 }
