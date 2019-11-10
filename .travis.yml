@@ -1,29 +1,20 @@
 language: java
+
 jdk:
-- openjdk8
+  - openjdk8
 services:
-- docker
+  - docker
 addons:
   sonarcloud:
-<<<<<<< HEAD
-    organization: "DenisTupichkin"
-=======
     organization: tupichkindenis
->>>>>>> master
     token:
       secure: "$SONAR_TOKEN"
 before_install:
   - echo "$DOCKER_PASSWORD" | docker login  -u "$DOCKER_USERNAME" --password-stdin
   - docker pull openjdk:8-jdk-alpine
 script:
-- echo -e '<?xml version="1.0" encoding="UTF-8"?>\n<settings xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.1.0
-  http://maven.apache.org/xsd/settings-1.1.0.xsd" xmlns="http://maven.apache.org/SETTINGS/1.1.0"\n    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">\n  <mirrors>\n    <mirror>\n      <id>mvnsearch-unavailable</id>\n      <name>mvnsearch-unavailable</name>\n      <mirrorOf>mvnsearch</mirrorOf>\n      <url>http://repo1.maven.org/maven2</url>\n    </mirror>\n  </mirrors>\n  <profiles>\n    <profile>\n      <id>no-mvnsearch</id>\n      <repositories>\n        <repository>\n          <id>mvnsearch</id>\n          <url>http://www.mvnsearch.org/maven2</url>\n          <releases>\n            <enabled>true</enabled>\n          </releases>\n          <snapshots>\n            <enabled>true</enabled>\n          </snapshots>\n        </repository>\n      </repositories>\n    </profile>\n  </profiles>\n  <activeProfiles>\n    <activeProfile>no-mvnsearch</activeProfile>\n  </activeProfiles>\n</settings>'
-  > $HOME/.m2/settings.xml
-- cat $HOME/.m2/settings.xml
-- mvn deploy
+  - cat $HOME/.m2/settings.xml
+  - mvn deploy
 after_success:
-- bash <(curl -s https://codecov.io/bash)
-- mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar -Dsonar.projectKey=tupichkindenis_cicd-applied-to-spring-boot-java-app
-env:
-  global:
-    secure: RP4fLy+PXxGUFGL8w4ie+cdQPIWW0/mz6HNM1Gt5Jk2e2P9UK0LsyFn3m0Pe5An7FUpJ0s9qFuK9OEhU2m2/HvzixZGgEXS9HOITGiXKmVsjilVCvmnOiysUtD2bsukGr+txs03SMxwwT+n/KMg67Mt4Wmuq6hreupWCySMQ8v4CkDRtmp4fLtwrcqJPO4qWr/iUxmvKFkt9s1f/BdkPx0j/mcenw0BLqjsy0EW7GypP+0cGx1hWQFC3YhZZZSYxJpPqB3REfytVNTwAa9rovDa5FyNSca8ySKXhSGILTsOAdSYTHgRH3S/j5QiR7MFN24de1SSJWO8Vs4fSdsjrGGRD+gK+Sjw9FmlEjyFjKj/l4iQXZB+JFdaktet/JKgvDx/OzDj1iEOZmHAsipFlSrxHZfusQqYY9Qk+0IcoR4cMY2CDBPfhzRWuV94bKAv5L0mRscF9+fmMQyNzgBBtVGzFlHxMzz7A5OVrbawR6Jzj1X6mI8YQQ+BM7L24pLlkiHsquAHfLQ7pMlZfpATA0PDboEBFih4ygzFmsBQUr3OBSBPPSYRCfuEPsEySyfp8vuxDVcLRoXeNrDdZjLcmLBs/P3A5HOnv1NU+whpbpfRWi3kXvjqceQRQ6VyPukjQh4Kp3mQTO/dfyXaIc6GAZdBuyMX7q4disqqc8l7CZRA=
+  - bash <(curl -s https://codecov.io/bash)
+  - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar -Dsonar.projectKey=tupichkindenis_cicd-applied-to-spring-boot-java-app
