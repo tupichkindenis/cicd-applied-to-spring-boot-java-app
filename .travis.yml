@@ -17,10 +17,15 @@ before_install:
   - echo "$DOCKER_PASSWORD" | docker login  -u "$DOCKER_USERNAME" --password-stdin
   - docker pull openjdk:8-jdk-alpine
 
+cache:
+  directories:
+    - '$HOME/.m2/repository'
+    - '$HOME/.sonar/cache'
+
 script:
   - cat $HOME/.m2/settings.xml
-  - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar -Dsonar.projectKey=tupichkindenis_cicd-applied-to-spring-boot-java-app -Dsonar.organization=tupichkindenis -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=1f332e171f86517287c24fc27a5996e2e83d0ec0
-#  - mvn deploy
+  - mvn heroku:deploy
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
+  - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar -Dsonar.projectKey=tupichkindenis_cicd-applied-to-spring-boot-java-app -Dsonar.organization=tupichkindenis -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=1f332e171f86517287c24fc27a5996e2e83d0ec0
