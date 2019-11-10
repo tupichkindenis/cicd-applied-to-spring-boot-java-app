@@ -11,7 +11,7 @@ addons:
   sonarcloud:
     organization: "tupichkindenis"
     token:
-      secure: "SeJJvytAsYrHxj23gkDn00nzxUcAeorVLtxL3x6SMLvT136H2gznFe1nGSa7eoPvtrmYzvIGUCXRppHA8+y8uWrOMrpm7mp1W/GhnMV0cEw5HHZZftS8C3QD3t81V9aZyqXcVWmPwvjVv4c4ysHT27ihu5srfk6F0nZm9/LHXBnvR+pXkAaPO+vWIjWV+FuEYbI/RFvyyEizmCsqn3aiBpHvWy65+0corKNIAQusck1mHWnmoy5+epxpSLnBcr2xvR94VZNBuWSLw+WiZZPudQ99Tuo6hWG0gf24wCR2UD1xv8W/lA2fi3LZBJhQp1GXy2aV9VptbApqGqJU1badbtOjA3jHa1iU0x6ijSQX7vPzAmgYUpZX+/MJY870tG5eVUvH5r6rkXKR9/kOGrPwvtRQt9Q9jtKCP9ZKWErsNytkicFPgN5usMVYaKyXzdBExnq4Iq6bViWDNstAXMChTulvDN5oiG4VMztKsZT+OWHWPNW1wMh3IfXRm61yzw0TF7e/EDpC9haiY9HQXoyZItiyjLk81ivHYh8QlCRLezDUGMXfnX5KofYVxU3gtZzuap6Y0L5jE/veWnrXBsZYgxlBk51ZO4DWRyz0xXTLTZE0KHeEqQiEtbxAY2iM+Zbh7yVpzwFMIBjKePna2Ma23QpAFblbmrt8uD6MV+OKtkc="
+      secure: "dPEx4cUtq5E7SD0Mfmrj9nRkim7nJ3+P9wmfXAifHR9xU3FbqJQeXveLGMl4XA65yCIvJDBG5DaNYfb2ARDQkFxcghfJLBWuUFnDbj5mIWjbdWj630mmSHDJz+0ljKAPd+TGI9AS9cUVXknYc/Vb/X9hCiStexPVDBrq1WTFaKclZHCVU0727G9s/AWWVUDXXu9tXzTb1hwIOPVdKJFqKMM/HdFkonn72N5LvTm+xjqHFGCSAY97agVgjmMivZplrRip9Hq9lNpgsKRnuAhHNhR0ds1GJ11XhxCuKZoS3u3f1xZHXf07KD2l5MmLOY4E0XfYPgFLrv0WV9WqXpgqsAxfgnKIfRfNWDfUw00wi8EYgN+WHJYrBn9ntrRxjnwOL+cxhV7KtoTSy5jUE0bclhqDTGn14FMlBGDF6VSLdJP03ZUKKECYvcnosNIed4B5kBpRjqh18NrGXlH4c7jS7UnDP/IehZQPe2a6QdM5cjPCHCkRTNxSKMsAv9kNqMcjosivRDiuh2jwJ3BZHpB9xBCK2kCQWfU51HJQRsRmNf/IAP7NICHuUs0ulRDiVJ5wVxMgdB1iOUB8JuWHHkW7oeptqHdFnMuEtr+RwnwZiy5d3vrhT03KMOfklErGMc6+UDwmvYidEFnUzK5hd3H/VT97Tob44VD8zpMRZLjePTE="
 
 before_install:
   - echo "$DOCKER_PASSWORD" | docker login  -u "$DOCKER_USERNAME" --password-stdin
@@ -19,7 +19,7 @@ before_install:
 
 script:
   - cat $HOME/.m2/settings.xml
-  - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar -Dsonar.projectKey=tupichkindenis_cicd-applied-to-spring-boot-java-app -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=e3472f258297bfd492d841279f18cf4ca0511206
+  - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar -Dsonar.projectKey=tupichkindenis_cicd-applied-to-spring-boot-java-app
 #  - mvn deploy
 
 after_success:
