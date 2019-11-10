@@ -16,7 +16,7 @@ script:
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
-  - sonar-scanner
+  - mvn clean verify sonar:sonar -Pcoverage -Dsonar.projectKey=tupichkindenis_cicd-applied-to-spring-boot-java-app
 
 addons:
   sonarcloud:
