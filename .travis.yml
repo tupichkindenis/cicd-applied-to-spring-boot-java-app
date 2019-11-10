@@ -11,7 +11,7 @@ addons:
   sonarcloud:
     organization: "tupichkindenis"
     token:
-      secure: "5fed1ed48bfdddc06e63f027f45d49de6ec82587"
+      secure: "SeJJvytAsYrHxj23gkDn00nzxUcAeorVLtxL3x6SMLvT136H2gznFe1nGSa7eoPvtrmYzvIGUCXRppHA8+y8uWrOMrpm7mp1W/GhnMV0cEw5HHZZftS8C3QD3t81V9aZyqXcVWmPwvjVv4c4ysHT27ihu5srfk6F0nZm9/LHXBnvR+pXkAaPO+vWIjWV+FuEYbI/RFvyyEizmCsqn3aiBpHvWy65+0corKNIAQusck1mHWnmoy5+epxpSLnBcr2xvR94VZNBuWSLw+WiZZPudQ99Tuo6hWG0gf24wCR2UD1xv8W/lA2fi3LZBJhQp1GXy2aV9VptbApqGqJU1badbtOjA3jHa1iU0x6ijSQX7vPzAmgYUpZX+/MJY870tG5eVUvH5r6rkXKR9/kOGrPwvtRQt9Q9jtKCP9ZKWErsNytkicFPgN5usMVYaKyXzdBExnq4Iq6bViWDNstAXMChTulvDN5oiG4VMztKsZT+OWHWPNW1wMh3IfXRm61yzw0TF7e/EDpC9haiY9HQXoyZItiyjLk81ivHYh8QlCRLezDUGMXfnX5KofYVxU3gtZzuap6Y0L5jE/veWnrXBsZYgxlBk51ZO4DWRyz0xXTLTZE0KHeEqQiEtbxAY2iM+Zbh7yVpzwFMIBjKePna2Ma23QpAFblbmrt8uD6MV+OKtkc="
 
 before_install:
   - echo "$DOCKER_PASSWORD" | docker login  -u "$DOCKER_USERNAME" --password-stdin
