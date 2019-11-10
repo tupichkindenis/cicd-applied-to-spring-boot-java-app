@@ -16,7 +16,7 @@ script:
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
-  - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar -Dsonar.projectKey=tupichkindenis_cicd-applied-to-spring-boot-java-app
+  - sonar-scanner
 
 addons:
   sonarcloud:
