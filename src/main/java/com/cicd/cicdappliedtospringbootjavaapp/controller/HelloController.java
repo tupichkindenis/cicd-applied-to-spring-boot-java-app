@@ -8,7 +8,8 @@ public class HelloController {
 
     @GetMapping ("/")
     public String home(){
-        return "Hello world...";
+        System.out.println("");
+        return "Hello world... (ver 2)";
     }
 
     @GetMapping ("/good-by")
