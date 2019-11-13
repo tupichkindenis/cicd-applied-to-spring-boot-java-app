@@ -5,7 +5,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 class HelloControllerTest {
@@ -15,6 +14,6 @@ class HelloControllerTest {
 
     @Test
     void home() {
-        assertThat(helloController.home()).isEqualToIgnoringCase("Hello world...");
+        assertThat(helloController.home()).isEqualToIgnoringCase("Hello world... (ver 2)");
     }
 }
